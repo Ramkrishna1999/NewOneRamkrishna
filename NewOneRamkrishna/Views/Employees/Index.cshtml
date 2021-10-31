@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Employee Information </h2>
+<table>
+
+    <tr>
+
+        <th></th>
+
+        <th>
+
+            Id
+
+        </th>
+
+        <th>
+
+            Employee Name
+        </th>
+
+        <th>
+
+            Salary
+
+        </th>
+
+        
+
+    </tr>
+    @foreach (var i in Model)
+    {
+
+        <tr>
+
+            <td>
+
+                @Html.ActionLink("Edit", "Edit", new { id = i.id }) |
+
+                @Html.ActionLink("Details", "Details", new { id = i.id })
+
+            </td>
+
+            <td>
+
+                @Html.Encode(i.id)
+
+            </td>
+
+            <td>
+
+                @Html.Encode(i.EmpName)
+
+            </td>
+
+            <td>
+
+                @Html.Encode(i.salary)
+
+            </td>
+
+
+
+        </tr>
+
+    }
+
+    @*@{
+            var data = ViewBag.li;
+        }
+        <h3>Employee Id:    @data.id</h3>
+        <h3>Employee Name:  @data.EmpName</h3>
+        <h3>Employee Email: @data.email</h3>
+        <h3>Employee Contact: @data.contact</h3>
+        <h3>Employee Salary: @data.salary</h3>*@
+
+
