@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<ul class="nav nav-pills">
+    <li class="nav-item ">
+        <a class="nav-link active rounded-0" data-toggle="pill" href="#home">Employee</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link rounded-0" data-toggle="pill" href="#menu1">Department</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link rounded-0" data-toggle="pill" href="#menu2">Incentive</a>
+    </li>
+</ul>
+
+<h2>Employee Information </h2>
+<div class="tab-content">
+    <div class="tab-pane container active p-0" id="home">
+        <h5 class="text-uppercase p-2 text-center">List of Employee</h5>
+
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark text-white">
+                <tr>
+                    <th> </th>
+                    <th>Employee Id</th>
+                    <th>Employee Name</th>
+                    <th>Employee Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var i in Model)
+                {
+
+                    <tr>
+
+                        <td>
+
+                            @Html.ActionLink("Edit", "Edit", new { id = i.id }) |
+
+                            @Html.ActionLink("Details", "Details", new { id = i.id })
+
+                        </td>
+
+                        <td>
+
+                            @Html.Encode(i.id)
+
+                        </td>
+
+                        <td>
+
+                            @Html.Encode(i.EmpName)
+
+                        </td>
+
+                        <td>
+
+                            @Html.Encode(i.salary)
+
+                        </td>
+
+
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane container fade p-0" id="menu1">
+        <h5 class="text-uppercase p-2 text-center">List of Department</h5>
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark text-white">
+                <tr>
+                    <th>Department ID</th>
+                    <th>Department Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var n in Model)
+                {
+                    <tr>
+                        <td>@n.id</td>
+                        <td>@n.EmpName</td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane container fade p-0" id="menu2">
+        <h5 class="text-uppercase p-2 text-center">List of Employee Salary</h5>
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark text-white">
+                <tr>
+                    <th>New Column One</th>
+                    <th>New Column Two</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var i in Model)
+                {
+                    <tr>
+                        <td>@i.id</td>
+                        <td>@i.salary</td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+        @*@{
+                var data = ViewBag.li;
+            }
+            <h3>Employee Id:    @data.id</h3>
+            <h3>Employee Name:  @data.EmpName</h3>
+            <h3>Employee Email: @data.email</h3>
+            <h3>Employee Contact: @data.contact</h3>
+            <h3>Employee Salary: @data.salary</h3>*@
+
+
